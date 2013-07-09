@@ -1,0 +1,86 @@
+<div data-bb-type="screen" >
+        <div class="row-fluid">
+             <div class="span2">
+                 <div class="well" >
+                     <ul class="nav nav-list" id = "idmenu">
+                     </ul>
+                 </div>
+             </div>
+         <div class="span10">
+         <div class="well-white">
+         <div class="row-fluid " style="padding-top: 0px; padding-bottom : 0px;">
+         <div class="span12 well-red">
+            &nbsp;<a href= "javascript:bb.pushScreen('mantenimiento.html', 'mantenimiento');"><img rel="tooltip" title="Atrás" src="img/atras.png" width="60"></a>&nbsp;<span style="font-size: 1.5em; " >Agregar Mantenimiento</span></div>
+         </div>
+         <div class="row-fluid " style="padding-top: 0px;">
+         <div class="span12" style="padding-right: 10px;padding-left: 10px;">
+        <form id = "formularioagregarmantenimiento" method="post">
+        <div class="row-fluid" style="padding-top: 0px;">
+             <div class="span6" align="left" >
+                <div id = "iddivestacion" >
+                    <label><b>Estación</b> <span style="color:red;">*</span> </label>
+                    <select id = "idSelectestacion"></select>
+                    <span id = "iddivnodomessage"> </span>
+                    <span class="help-block">Estado de la maquina</span>
+                </div>
+            </div>
+            <div class="span6" align="left"   >
+                <div id = "iddivnodo" >
+                    <label><b>Nodo</b> <span style="color:red;">*</span> </label>
+                    <select id = "idSelectNodo"></select>
+                    <span id = "iddivnodomessage"> </span>
+                    <span class="help-block">Ubicación de la maquina</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span12" align="left" >
+               <div id = "iddivobservacion"  >
+                    <label><b>Observación</b> <span style="color:red;">*</span> </label>
+                    <textarea  id="idobservacionagregar" onfocus = "document.getElementById('iddivobservacion').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivobservacion').setAttribute('style', '');" class="span10" placeholder="Ejemplo: Observacion del equipo" rows="4" cols="100"></textarea>
+                    <span id = "iddivobservacionmessage"> </span>
+                    <span class="help-block">Observaciones de la maquina</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span12" align="left" >
+                <div id = "iddivestado" >
+                    <label><b>Estado Final</b> <span style="color:red;">*</span> </label>
+                    <select id = "idSelectEstado">
+                        <option value="1" >Funcionando</option>
+                        <option value="2" >Averiado</option>
+                        <option value="3" >Precaución</option>
+                    </select>
+                    <span id = "iddivnodomessage"> </span>
+                    <span class="help-block">Estado de la Maquina</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row-fluid" style="padding-top: 0px;">
+           <div class="span12" align="left" >
+
+                <div id = "iddivcomponente">
+                     <div class = "pull-right"><a href="javascript:agregarComponente();"> <img rel = "tooltip"  title= "Agregar Componente" src="img/add.png"></a></div>
+                     <label><b>Agregar Componente</b><span style="color:red;">*</span> </label>
+                     <div><small>&nbsp;Debe seleccionar el estado de todos los componente</small></div>
+                    <div id = "idListaComponente"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <div id= "idenviando">
+            <button id = "Limpiar" class="btn btn-danger" type="button" onclick = "cleanTextMantenimientoAgregar();">Limpiar</button>
+            <button id = "guardar" class="btn btn-primary" type="submit"  >Guardar</button>
+        </div>
+        </div>
+        </form>
+        
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+
+</div>

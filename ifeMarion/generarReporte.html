@@ -1,0 +1,153 @@
+<div data-bb-type="screen" >
+        <div class="row-fluid">
+             <div class="span2">
+                 <div class="well" >
+                     <ul class="nav nav-list" id = "idmenu"></ul>
+                 </div>
+             </div>
+         <div class="span10">
+         <div class="well-white">
+         <div class="row-fluid " style="padding-top: 0px; padding-bottom : 0px;">
+         <div class="span12 well-red">&nbsp;<img src="img/usuario.png">&nbsp;<span style="font-size: 1.5em; " >Generar Resporte</span></div>
+         </div>
+         <div class="row-fluid " style="padding-top: 0px;">
+         <div class="span12" style="padding-right: 10px;padding-left: 10px;">
+             <!--    <div class="row-fluid" style="padding-top: 0px;">
+                 <div class="span3">Nombre: <input id="idnombrefilter" class="input-medium" type="text" ></div>
+                 <div class="span3">Apellido: <input id="idapellidofilter" class="input-medium" type="text" ></div>
+                 <div class="span3">Cédula: <input id="idcedulafilter" class="input-medium" type="text" ></div>
+                 <div class="span3">
+                     <button id="idbuttonLimpiar" class="btn btn-small  btn-danger pull-right" style="margin-left: 3px;" type="button" onclick = "cleanText();" >Limpiar</button>
+                     <button id="idbuttonBuscar" class="btn btn-small  btn-danger pull-right" id="submit" onclick = "obtenerListaUsuario(1)" >Buscar</button>
+             </div>
+             </div> 
+                <div  align="center" id = "idloadingdiv"></div>
+                <div id = "idtabla"></div>
+                <div class="row-fluid" style="padding-top: 0px;">
+                    <div class="span4"></div>
+                    <div class="span4"></div>
+                    <div class="span4">
+                      <div class="btn-group dropup pull-right" style="margin-bottom: 10px;">
+                        <button id = "bottonCount" class="btn"></button>
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id = "idulnumberpage">
+                        </ul>
+                      </div>
+
+                    </div>
+                    </div> -->
+                    <div class="row-fluid" style="padding-top: 0px;">
+                   <div class="span12">
+                    <div align="center"><h1>EN CONSTRUCCION</h1></div>
+                    <div align="center"><img src="img/construccion.jpg"></div>
+                  </div>
+                 </div>
+                <div  class = "pagination pagination-centered">
+                  <ul  id = "pagination" >
+                  </ul>
+              </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel"><img src="img/usuario_agregar.png">Agregar Usuario</h3>
+        </div>
+        <form id = "formularioagregar" method="post">
+        <div class="modal-body">
+        <fieldset>
+        <legend>Datos de usuario</legend>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivnombre" >
+                    <label><b>Nombre</b> <span style="color:red;">*</span> </label>
+                    <input id="idnombreagregar" onfocus = "document.getElementById('iddivnombre').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivnombre').setAttribute('style', '');" class="input-large" type="text" placeholder="Ejemplo: Eidimar" >
+                    <span id = "iddivnombremessage"> </span>
+                    <span class="help-block">Nombre del usuario</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+               <div id = "iddivapellido"  >
+                    <label><b>Apellido</b> <span style="color:red;">*</span> </label>
+                    <input id="idapellidoagregar" onfocus = "document.getElementById('iddivapellido').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivapellido').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: Leon" >
+                    <span id = "iddivapellidomessage"> </span>
+                    <span class="help-block">Apellido del usuario</span>
+                </div>
+            </div>
+        </div>
+         <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivnick" >
+                    <label><b>Nombre de usuario</b> <span style="color:red;">*</span> </label>
+                    <input id="idnickagregar" onfocus = "document.getElementById('iddivnick').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivnick').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: llopez" > <span id = "iddivnickmessage"> </span>
+                    <span class="help-block">Nombre de usuario en el sistema</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+               <div id ="iddivcedula" >
+                    <label><b>Cédula</b> <span style="color:red;">*</span> </label>
+                    <input id="idcedulaagregar" onfocus = "document.getElementById('iddivcedula').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivcedula').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: 17895145" > <span id = "iddivcedulamessage"> </span>
+                    <span class="help-block">Número de cédula del usuario</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivtelefono" >
+                    <label><b>Teléfono</b> <span style="color:red;">*</span> </label>
+                    <input id="idtelefonoagregar" onfocus = "document.getElementById('iddivtelefono').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivtelefono').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: 04264209995" > <span id = "iddivtelefonomessage"> </span>
+                    <span class="help-block">Número de teléfono del usuario</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+                <div id = "iddivemail" >
+                    <label><b>Email</b> <span style="color:red;">*</span> </label>
+                    <input id="idemailagregar" onfocus = "document.getElementById('iddivemail').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivemail').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: eidimar@hotmail.com" > <span id = "iddivemailmessage"> </span>
+                    <span class="help-block">Email del usuario</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivcargo"  >
+                    <label><b>Cargo</b> <span style="color:red;">*</span> </label>
+                    <select id = "idcargoagregar"  onfocus = "document.getElementById('iddivcargo').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivcargo').setAttribute('style', '');">
+                        <option value="1">Administrador</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3" selected >Técnico de estación</option>
+                    </select>
+                    <span id = "iddivcargomessage"> </span>
+                    <span class="help-block">Cargo del usuario</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+                <div id = "iddivturno">
+                    <label><b>Turno</b> <span style="color:red;">*</span> </label>
+                    <input id="idturnoagregar" onfocus = "document.getElementById('iddivturno').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivturno').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: Diurno">
+
+                    <span id = "iddivturnomessage"> </span>
+                    <span class="help-block">Turno de trabajo del usuario</span>
+                </div>
+            </div>
+        </div>
+
+        </fieldset>
+        </div>
+        <div class="modal-footer">
+        <div id= "idenviando">
+            <button id = "Limpiar" class="btn btn-danger" type="button" onclick = "cleanTextAgregar();">Limpiar</button>
+            <button id = "guardar" class="btn btn-primary" type="submit"  >Guardar</button>
+        </div>
+        </div>
+        </form>
+        </div>
+
+
+</div>

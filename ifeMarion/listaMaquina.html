@@ -1,0 +1,161 @@
+<div data-bb-type="screen" >
+        <div class="row-fluid">
+         <div class="span2">
+            <div class="well">
+                 <ul class="nav nav-list" id = "idmenu">
+                 </ul>
+            </div>
+         </div>
+         <div class="span10">
+         <div class="well-white">
+         <div class="row-fluid " style="padding-top: 0px; padding-bottom : 0px;">
+         <div class="span12 well-red">&nbsp;<img src="img/maquina.png">&nbsp;<span style="font-size: 1.5em; " >Lista de Maquinas</span><div style="float: right;"> <a href="javascript:agregarMaquinaModal();"><img src="img/maquina_agregar.png"></a>&nbsp;</div> </div>
+         </div>
+         <div class="row-fluid " style="padding-top: 0px;">
+         <div class="span12" style="padding-right: 10px;padding-left: 10px;">
+                <div class="row-fluid" style="padding-top: 0px;">
+                    <div class="span2">Estación: <input id="idestacionfilter" class="input-medium" type="text" data-source='["caracas", "charallave norte","charallave sur","cua"]' data-provide="typeahead" data-items="5" style="margin: 0 auto;" /></div>
+                    <div class="span2">Nodo: <input id="idnodofilter" class="input-medium" type="text" ></div>
+                    <div class="span2">Localizador: <input id="idlocalizadorfilter" class="input-medium" type="text" ></div>
+                    <div class="span2">Dirección IP: <input id="iddireccionfilter" class="input-medium" type="text" ></div>
+                    <div class="span4">
+                        <button id="idbuttonLimpiar" class="btn btn-small  btn-danger pull-right" style="margin-left: 3px;" type="button" onclick = "cleanTextMaquina();" >Limpiar</button>
+                        <button id="idbuttonBuscar" class="btn btn-small  btn-danger pull-right" id="submit" onclick = "obtenerListaMaquina(1)" >Buscar</button>
+                </div>
+                </div>
+                <div  align="center" id = "idloadingdiv"></div>
+                <div id = "idtabla"></div>
+                <div class="row-fluid" style="padding-top: 0px;">
+                    <div class="span4">
+                        <ul>
+                            <li style="color: #66CD00;"> Correcto funcionamiento </li>
+                            <li style="color: #E3CC00;"> Precaución </li>
+                            <li style="color: red;"> Averiado </li>
+                            <li>No revisada</li>
+                        </ul>
+                    </div>
+                    <div class="span4"></div>
+                    <div class="span4">
+                      <div class="btn-group dropup pull-right " style="margin-bottom: 10px;">
+                        <button id = "bottonCount" class="btn"></button>
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id = "idulnumberpage">
+                        <!-- dropdown menu links -->
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+              <div  class = "pagination pagination-centered">
+                  <ul  id = "pagination" ></ul>
+              </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel"><img src="img/maquina_agregar.png">Agregar Maquina</h3>
+        </div>
+        <form id = "formularioagregarmaquina" method="post">
+        <div class="modal-body">
+        <fieldset>
+        <legend>Datos de la Maquina</legend>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivnodo" >
+                    <label><b>Nodo</b> <span style="color:red;">*</span> </label>
+                    <input id="idnodoagregar" onfocus = "document.getElementById('iddivnodo').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivnodo').setAttribute('style', '');" class="input-large" type="text" placeholder="Ejemplo: CUA-01.02" >
+                    <span id = "iddivnodomessage"> </span>
+                    <span class="help-block">Ubicación de la Maquina</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+               <div id = "iddivdireccion"  >
+                    <label><b>Dirección IP</b> <span style="color:red;">*</span> </label>
+                    <input id="iddireccionagregar" onfocus = "document.getElementById('iddivdireccion').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivdireccion').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo:172.12.2.12" >
+                    <span id = "iddivdireccionmessage"> </span>
+                    <span class="help-block">Dirreción IP asignada a la maquina</span>
+                </div>
+            </div>
+        </div>
+         <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivlogicalid" >
+                    <label><b>Logical ID</b> <span style="color:red;">*</span> </label>
+                    <input id="idlogicalidagregar" onfocus = "document.getElementById('iddivlogicalid').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivlogicalid').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: 654521354321354351324531354158" > <div id = "iddivlogicalidmessage"> </div>
+                    <div class="help-block">Serial de la Maquina</div>
+                </div>
+            </div>
+            <div class="span6" align="left"   >
+                <div id = "iddivlogicalid" >
+                    <label><b>Estación</b> <span style="color:red;">*</span> </label>
+                    <select id = "idestacion">
+                        <option value="1" selected >Caracas</option>
+                        <option value="2" >Charallave Norte</option>
+                        <option value="3">Charallave Sur</option>
+                        <option value="4">Cua</option>
+                    </select>
+
+                    <div id = "iddivlogicalidmessage"> </div>
+                    <div class="help-block">Serial de la Maquina</div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-top: 0px;">
+            <div class="span6" align="left"   >
+                <div id = "iddivlocalizadorrx" >
+                    <label><b>Localizador RX</b> <span style="color:red;">*</span> </label>
+                    <input id="idlocalizadorrxagregar" onfocus = "document.getElementById('iddivlocalizadorrx').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivlocalizadorrx').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo: 0516515" > <span id = "iddivlocalizadorrxmessage"> </span>
+                    <span class="help-block">no tengo idea que es esto</span>
+                </div>
+            </div>
+            <div class="span6" align="left" >
+                <div id = "iddivlocalizador" >
+                    <label><b>Localizador</b> <span style="color:red;">*</span> </label>
+                    <input id="idlocalizadoragregar" onfocus = "document.getElementById('iddivlocalizador').setAttribute('style', 'background-color: #fff7c0;');" onblur = "document.getElementById('iddivlocalizador').setAttribute('style', '');" class="input-large" type="text"  placeholder="Ejemplo:54685416354" > <span id = "iddivlocalizadormessage"> </span>
+                    <span class="help-block">no tengo idea que es esto</span>
+                </div>
+            </div>
+            <div class="row-fluid" style="padding-top: 0px;">
+                <div class="span12" align="left" >
+                    <div id = "iddivestado" >
+                        <label><b>Estado Final</b> <span style="color:red;">*</span> </label>
+                        <select id = "idSelectEstado">
+                            <option value="1" >Funcionando</option>
+                            <option value="2" >Averiado</option>
+                            <option value="3" >Precaución</option>
+                        </select>
+                        <span id = "iddivestadomessage"> </span>
+                        <span class="help-block">Estado de la Maquina</span>
+                    </div>
+                </div>
+            </div>
+           <div class="row-fluid" style="padding-top: 0px;">
+               <div class="span12" align="left" >
+                    <div id = "iddivcomponente">
+                         <div class = "pull-right"><a href="javascript:agregarComponente();"> <img rel = "tooltip"  title= "Agregar Componente" src="img/add.png"></a></div>
+                         <label><b>Agregar Componente</b><span style="color:red;">*</span> </label>
+                        <div id = "idListaComponente"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </fieldset>
+        </div>
+        <div class="modal-footer">
+        <div id= "idenviando">
+            <button id = "Limpiar" class="btn btn-danger" type="button" onclick = "cleanTextMaquinaAgregar();">Limpiar</button>
+            <button id = "guardar" class="btn btn-primary" type="submit"  >Guardar</button>
+        </div>
+        </div>
+        </form>
+        </div>
+
+
+</div>

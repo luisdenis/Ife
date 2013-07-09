@@ -1,0 +1,57 @@
+<div data-bb-type="screen" >
+        <div class="row-fluid">
+         <div class="span2">
+            <div class="well">
+                 <ul class="nav nav-list" id = "idmenu">
+                 </ul>
+            </div>
+         </div>
+         <div class="span10">
+         <div class="well-white">
+         <div class="row-fluid " style="padding-top: 0px; padding-bottom : 0px;">
+         <div class="span12 well-red">&nbsp;<img src="img/maquina.png">&nbsp;<span style="font-size: 1.5em; " >&nbsp;Mantenimiento</span><div style="float: right;"> <a href="javascript:bb.pushScreen('agregarMantenimiento.html', 'agregarMantenimiento');"><img rel="tooltip" title="Agregar Mantenimiento" src="img/maquina_mantenimiento.png"></a>&nbsp;</div> </div>
+         </div>
+         <div class="row-fluid " style="padding-top: 0px;">
+         <div class="span12" style="padding-right: 10px;padding-left: 10px;">
+                <div class="row-fluid" style="padding-top: 0px;">
+                     <div class="span4">Nombre usuario: <input id="idusuariofilter" class="input-medium" type="text" ></div>
+                     <div class="span3">Estación: <input id="idestacionfilter" class="input-medium" type="text" data-source='["caracas", "charallave norte","charallave sur","cua"]' data-provide="typeahead" data-items="5" style="margin: 0 auto;" /></div>
+                    <div class="span3">Nodo: <input id="idnodofilter" class="input-medium" type="text" ></div>
+                    <div class="span2">
+                        <button id="idbuttonLimpiar" class="btn btn-small  btn-danger pull-right" style="margin-left: 3px;" type="button" onclick = "cleanTextMantenimiento();" >Limpiar</button>
+                        <button id="idbuttonBuscar" class="btn btn-small  btn-danger pull-right" id="submit" onclick = "obtenerListaMaquinaMantenimiento(1)" >Buscar</button>
+                </div>
+                </div>
+                <div  align="center" id = "idloadingdiv"></div>
+                <div id = "idtabla"></div>
+                <div class="row-fluid" style="padding-top: 0px;">
+                    <div class="span4">
+                        <ul>
+                            <li style="color: #66CD00;"> Correcto funcionamiento </li>
+                            <li style="color: #E3CC00;"> Precaución </li>
+                            <li style="color: red;"> Averiado </li>
+                        </ul>
+                    </div>
+                    <div class="span4"></div>
+                    <div class="span4">
+                      <div class="btn-group dropup pull-right " style="margin-bottom: 10px;">
+                        <button id = "bottonCount" class="btn"></button>
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id = "idulnumberpage">
+                        <!-- dropdown menu links -->
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+              <div  class = "pagination pagination-centered">
+                  <ul  id = "pagination" ></ul>
+              </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+
+</div>
